@@ -1,0 +1,23 @@
+# translations/messages.ru.yaml
+CODE_OK: OK
+CODE_NO_ALL_PARAMS: NO_ALL_PARAMS
+CODE_ERROR: ERROR
+MESSAGE_OK: Выполнено успешно
+MESSAGE_NO_ALL_PARAMS: Не заданы обязательные параметры
+MESSAGE_PRODUCT_NOT_FOUND: Продукт не найден
+MESSAGE_PRODUCTS_NOT_FOUND: Продукты не найден
+MESSAGE_PRICE_NOT_FOUND: Цена не найдена
+MESSAGE_PRICES_NOT_FOUND: Цены не найдены
+MESSAGE_INVALID_COIN: Неверная монета
+MESSAGE_NONEXISTENT_PRODUCT: Несуществующий продукт
+MESSAGE_INVALID_SUMM: Неверная сумма взноса
+MESSAGE_MAIN_ACCOUNT_NOT_FOUND: Главный счет не найден
+MESSAGE_INSUFFICIENT_FUNDS_ON_MAIN_ACCOUNT: Недостаточно средств на главном счете
+MESSAGE_TRANSFER_ERROR_TO_ACCOUNT: Ошибка переноса на аккаунт
+MESSAGE_NO_PRODUCT: Продукт не найден
+MESSAGE_NO_PRICE: Цена не найдена
+MESSAGE_NO_BANKNOTE: Валюта не найдена
+MESSAGE_FAILD_ADD_RECORD: Не удалось добавить запись
+MESSAGE_FAILD_UPDATE_RECORD: Не удалось обновить запись
+MESSAGE_FAILD_DELETE_RECORD: Не удалось удалить запись
+MESSAGE_NOT_WHOLE_NUMBER_COINS: Не целое число монет
