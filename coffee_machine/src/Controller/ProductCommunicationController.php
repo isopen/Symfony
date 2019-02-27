@@ -81,7 +81,7 @@ class ProductCommunicationController extends AbstractController {
     $entityManager->persist($productCommunication);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_ADD_RECORD");
       return new JsonResponse($response);
@@ -199,7 +199,7 @@ class ProductCommunicationController extends AbstractController {
     $productCommunication->setCommunicationUpdated(new \DateTime());
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_UPDATE_RECORD");
       return new JsonResponse($response);
@@ -228,7 +228,7 @@ class ProductCommunicationController extends AbstractController {
     $entityManager->remove($productCommunication);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_DELETE_RECORD");
       return new JsonResponse($response);

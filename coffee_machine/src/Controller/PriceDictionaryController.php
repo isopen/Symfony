@@ -54,7 +54,7 @@ class PriceDictionaryController extends AbstractController {
     $entityManager->persist($price);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_ADD_RECORD");
       return new JsonResponse($response);
@@ -140,7 +140,7 @@ class PriceDictionaryController extends AbstractController {
     $price->setPriceUpdated(new \DateTime());
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_UPDATE_RECORD");
       return new JsonResponse($response);
@@ -169,7 +169,7 @@ class PriceDictionaryController extends AbstractController {
     $entityManager->remove($price);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_DELETE_RECORD");
       return new JsonResponse($response);

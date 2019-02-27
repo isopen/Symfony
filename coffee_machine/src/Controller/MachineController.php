@@ -127,7 +127,7 @@ class MachineController extends AbstractController {
     $storageMachine->setTotalCoins($totalCoins);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_TRANSFER_ERROR_TO_ACCOUNT");
       $response["data"]["cashback"] = $contribution;

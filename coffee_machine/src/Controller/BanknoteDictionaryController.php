@@ -54,7 +54,7 @@ class BanknoteDictionaryController extends AbstractController {
     $entityManager->persist($banknote);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_ADD_RECORD");
       return new JsonResponse($response);
@@ -140,7 +140,7 @@ class BanknoteDictionaryController extends AbstractController {
     $banknote->setBanknoteUpdated(new \DateTime());
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_UPDATE_RECORD");
       return new JsonResponse($response);
@@ -168,7 +168,7 @@ class BanknoteDictionaryController extends AbstractController {
     $entityManager->remove($banknote);
     try {
       $entityManager->flush();
-    } catch (ORMException $e) {
+    } catch (\Exception $e) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_DELETE_RECORD");
       return new JsonResponse($response);
