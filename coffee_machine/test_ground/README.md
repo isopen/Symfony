@@ -14,7 +14,7 @@
 <code>curl "http://127.0.0.1:8000/price/1"</code> - получить один
 <code>curl "http://127.0.0.1:8000/price"</code> - получить все
 <code>curl -d "cost=100500&active=0" "http://127.0.0.1:8000/price/put/1"</code> - обновить один
-<code>curl http://127.0.0.1:8000/price/put/1?cost=100500"</code> - обновить один
+<code>curl "http://127.0.0.1:8000/price/put/1?cost=100500"</code> - обновить один
 <code>curl -X DELETE "http://127.0.0.1:8000/price/1"</code> - удалить один
 </pre>
 ##### Банкноты:

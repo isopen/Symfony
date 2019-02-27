@@ -79,7 +79,7 @@ class BanknoteDictionaryController extends AbstractController {
       ->find($id);
     if (!$banknote) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_BANKNOTE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -101,7 +101,7 @@ class BanknoteDictionaryController extends AbstractController {
       ->getResult(Query::HYDRATE_ARRAY);
     if (!$banknotes) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCTS_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_BANKNOTES_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -125,14 +125,14 @@ class BanknoteDictionaryController extends AbstractController {
     $active = (int)$request->get("active") == 0 ? false: true;
     if (!$name) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_BANKNOTE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $entityManager = $this->getDoctrine()->getManager();
     $banknote = $entityManager->getRepository(BanknoteDictionary::class)->find($id);
     if (!$banknote) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_BANKNOTE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $banknote->setBanknoteName($name);
@@ -162,7 +162,7 @@ class BanknoteDictionaryController extends AbstractController {
     $banknote = $entityManager->getRepository(BanknoteDictionary::class)->find($id);
     if (!$banknote) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_BANKNOTE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $entityManager->remove($banknote);

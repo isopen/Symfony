@@ -8,6 +8,10 @@ MESSAGE_PRODUCT_NOT_FOUND: Продукт не найден
 MESSAGE_PRODUCTS_NOT_FOUND: Продукты не найден
 MESSAGE_PRICE_NOT_FOUND: Цена не найдена
 MESSAGE_PRICES_NOT_FOUND: Цены не найдены
+MESSAGE_COMMUNICATION_NOT_FOUND: Связь продукта не найдена
+MESSAGE_COMMUNICATIONS_NOT_FOUND: Связи продуктов не найдены
+MESSAGE_BANKNOTE_NOT_FOUND: Валюта не найдена
+MESSAGE_BANKNOTES_NOT_FOUND: Валюты не найдены
 MESSAGE_INVALID_COIN: Неверная монета
 MESSAGE_NONEXISTENT_PRODUCT: Несуществующий продукт
 MESSAGE_INVALID_SUMM: Неверная сумма взноса

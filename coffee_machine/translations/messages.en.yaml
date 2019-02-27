@@ -8,6 +8,10 @@ MESSAGE_PRODUCT_NOT_FOUND: Product not found
 MESSAGE_PRODUCTS_NOT_FOUND: Products not found
 MESSAGE_PRICE_NOT_FOUND: Price not found
 MESSAGE_PRICES_NOT_FOUND: Prices not found
+MESSAGE_COMMUNICATION_NOT_FOUND: Communication not found
+MESSAGE_COMMUNICATIONS_NOT_FOUND: Communications not found
+MESSAGE_BANKNOTE_NOT_FOUND: Banknote not found
+MESSAGE_BANKNOTES_NOT_FOUND: Banknotes not found
 MESSAGE_INVALID_COIN: Invalid coin
 MESSAGE_NONEXISTENT_PRODUCT: nonexistent product
 MESSAGE_INVALID_SUMM: Invalid installment amount

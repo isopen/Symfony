@@ -107,7 +107,7 @@ class ProductCommunicationController extends AbstractController {
       ->find($id);
     if (!$productCommunication) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_COMMUNICATION_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -135,7 +135,7 @@ class ProductCommunicationController extends AbstractController {
       ->getResult(Query::HYDRATE_ARRAY);
     if (!$productsCommunication ) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCTS_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_COMMUNICATIONS_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -163,8 +163,8 @@ class ProductCommunicationController extends AbstractController {
     $active = (int)$request->get("active") == 0 ? false: true;
     $response = array();
     if (!$product_id || !$price_id || !$banknote_id) {
-      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["code"] = $this->translator->trans("CODE_NO_ALL_PARAMS");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_NO_ALL_PARAMS");
       return new JsonResponse($response);
     }
     $entityManager = $this->getDoctrine()->getManager();
@@ -189,7 +189,7 @@ class ProductCommunicationController extends AbstractController {
     $productCommunication = $entityManager->getRepository(ProductCommunication::class)->find($id);
     if (!$productCommunication) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_COMMUNICATION_NOT_FOUND");
       return new JsonResponse($response);
     }
     $productCommunication->setCommunicationProduct($product);
@@ -222,7 +222,7 @@ class ProductCommunicationController extends AbstractController {
     $productCommunication = $entityManager->getRepository(ProductCommunication::class)->find($id);
     if (!$productCommunication) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_COMMUNICATION_NOT_FOUND");
       return new JsonResponse($response);
     }
     $entityManager->remove($productCommunication);

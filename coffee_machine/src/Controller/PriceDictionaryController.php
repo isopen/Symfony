@@ -79,7 +79,7 @@ class PriceDictionaryController extends AbstractController {
       ->find($id);
     if (!$price) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRICE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -101,7 +101,7 @@ class PriceDictionaryController extends AbstractController {
       ->getResult(Query::HYDRATE_ARRAY);
     if (!$prices) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCTS_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRICES_NOT_FOUND");
       return new JsonResponse($response);
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
@@ -125,14 +125,14 @@ class PriceDictionaryController extends AbstractController {
     $active = (int)$request->get("active") == 0 ? false: true;
     if (!$cost) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRICE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $entityManager = $this->getDoctrine()->getManager();
     $price = $entityManager->getRepository(PriceDictionary::class)->find($id);
     if (!$price) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRICE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $price->setPrice($cost);
@@ -163,7 +163,7 @@ class PriceDictionaryController extends AbstractController {
     $price = $entityManager->getRepository(PriceDictionary::class)->find($id);
     if (!$price) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
-      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_PRICE_NOT_FOUND");
       return new JsonResponse($response);
     }
     $entityManager->remove($price);
@@ -176,7 +176,6 @@ class PriceDictionaryController extends AbstractController {
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
-    $response["data"]["price_id"] = $price->getId();
     return new JsonResponse($response);
   }
 }
