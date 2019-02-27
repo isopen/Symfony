@@ -145,7 +145,7 @@ class ProductCommunicationController extends AbstractController {
   }
 
   /**
-  * @Route("/communication/{id}", name="product_communication_update", methods={"PUT"}, requirements={"id"="\d+"})
+  * @Route("/communication/put/{id}", name="product_communication_update", methods={"POST", "GET"}, requirements={"id"="\d+"})
   * Обновить связь продукта
   * @param int id
   * @param int product_id
@@ -168,15 +168,33 @@ class ProductCommunicationController extends AbstractController {
       return new JsonResponse($response);
     }
     $entityManager = $this->getDoctrine()->getManager();
+    $product = $entityManager->getRepository(ProductDictionary::class)->find($product_id);
+    if (!$product) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_NO_PRODUCT");
+      return new JsonResponse($response);
+    }
+    $price = $entityManager->getRepository(PriceDictionary::class)->find($price_id);
+    if (!$price) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_NO_PRICE");
+      return new JsonResponse($response);
+    }
+    $banknote = $entityManager->getRepository(BanknoteDictionary::class)->find($banknote_id);
+    if (!$banknote) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_NO_BANKNOTE");
+      return new JsonResponse($response);
+    }
     $productCommunication = $entityManager->getRepository(ProductCommunication::class)->find($id);
     if (!$productCommunication) {
       $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
       $response["status"]["message"] = $this->translator->trans("MESSAGE_PRODUCT_NOT_FOUND");
       return new JsonResponse($response);
     }
-    $productCommunication->setProductId($product_id);
-    $productCommunication->setPriceId($price_id);
-    $productCommunication->setBanknoteId($banknote_id);
+    $productCommunication->setCommunicationProduct($product);
+    $productCommunication->setCommunicationPrice($price);
+    $productCommunication->setCommunicationBanknote($banknote);
     $productCommunication->setCommunicationActive($active);
     $productCommunication->setCommunicationUpdated(new \DateTime());
     try {
