@@ -79,7 +79,13 @@ class ProductCommunicationController extends AbstractController {
     $productCommunication->setCommunicationCreated(new \DateTime());
     $productCommunication->setCommunicationUpdated(new \DateTime());
     $entityManager->persist($productCommunication);
-    $entityManager->flush();
+    try {
+      $entityManager->flush();
+    } catch (ORMException $e) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_ADD_RECORD");
+      return new JsonResponse($response);
+    }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
     $response["data"]["product_communication_id"] = $productCommunication->getId();
@@ -173,7 +179,13 @@ class ProductCommunicationController extends AbstractController {
     $productCommunication->setBanknoteId($banknote_id);
     $productCommunication->setCommunicationActive($active);
     $productCommunication->setCommunicationUpdated(new \DateTime());
-    $entityManager->flush();
+    try {
+      $entityManager->flush();
+    } catch (ORMException $e) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_UPDATE_RECORD");
+      return new JsonResponse($response);
+    }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
     $response["data"]["product_communication_id"] = $productCommunication->getId();
@@ -196,7 +208,13 @@ class ProductCommunicationController extends AbstractController {
       return new JsonResponse($response);
     }
     $entityManager->remove($productCommunication);
-    $entityManager->flush();
+    try {
+      $entityManager->flush();
+    } catch (ORMException $e) {
+      $response["status"]["code"] = $this->translator->trans("CODE_ERROR");
+      $response["status"]["message"] = $this->translator->trans("MESSAGE_FAILD_DELETE_RECORD");
+      return new JsonResponse($response);
+    }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
     $response["data"]["product_communication_id"] = $productCommunication->getId();
