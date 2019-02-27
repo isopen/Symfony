@@ -84,7 +84,7 @@ class BanknoteDictionaryController extends AbstractController {
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
-    $response["data"]["banknote_name"] = $banknote->getBanknotsName();
+    $response["data"]["banknote_name"] = $banknote->getBanknoteName();
     return new JsonResponse($response);
   }
 

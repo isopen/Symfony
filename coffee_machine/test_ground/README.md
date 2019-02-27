@@ -29,11 +29,11 @@
 ##### Архитектура продуктов:
 <pre>
 <code>curl -d "product_id=1&price_id=1&banknote_id=1" "http://127.0.0.1:8000/communication"</code> - добавить один
-<code>curl "http://127.0.0.1:8000/banknote/1"</code> - получить один
-<code>curl "http://127.0.0.1:8000/banknote"</code> - получить все
-<code>curl -d "product_id=1&price_id=1&banknote_id=1" "http://127.0.0.1:8000/banknote/put/1"</code> - обновить один
-<code>curl "http://127.0.0.1:8000/banknote/put/1?product_id=1&&price_id=1&&banknote_id=1"</code> - обновить один
-<code>curl -X DELETE "http://127.0.0.1:8000/banknote/1"</code> - удалить один
+<code>curl "http://127.0.0.1:8000/communication/1"</code> - получить один
+<code>curl "http://127.0.0.1:8000/communication"</code> - получить все
+<code>curl -d "product_id=1&price_id=1&banknote_id=1" "http://127.0.0.1:8000/communication/put/1"</code> - обновить один
+<code>curl "http://127.0.0.1:8000/communication/put/1?product_id=1&&price_id=1&&banknote_id=1"</code> - обновить один
+<code>curl -X DELETE "http://127.0.0.1:8000/communication/1"</code> - удалить один
 </pre>
 ##### Кофе-машина:
 <pre>

@@ -112,12 +112,12 @@ class ProductCommunicationController extends AbstractController {
     }
     $response["status"]["code"] = $this->translator->trans("CODE_OK");
     $response["status"]["message"] = $this->translator->trans("MESSAGE_OK");
-    $response["data"]["product_id"] = $productCommunication->getCommunicationProductId();
-    $response["data"]["price_id"] = $productCommunication->getCommunicationPriceId();
-    $response["data"]["banknote_id"] = $productCommunication->getCommunicationBanknoteId();
-    $response["data"]["product_name"] = $productCommunication->getCommunicationProducts();
-    $response["data"]["price_cost"] = $productCommunication->getCommunicationPrices();
-    $response["data"]["banknote_name"] = $productCommunication->getCommunicationBanknotes();
+    $response["data"]["product_id"] = $productCommunication->getProductId();
+    $response["data"]["price_id"] = $productCommunication->getPriceId();
+    $response["data"]["banknote_id"] = $productCommunication->getBanknoteId();
+    $response["data"]["product_name"] = $productCommunication->getCommunicationProduct()->getProductName();
+    $response["data"]["price_cost"] = $productCommunication->getCommunicationPrice()->getPrice();
+    $response["data"]["banknote_name"] = $productCommunication->getCommunicationBanknote()->getBanknoteName();
     return new JsonResponse($response);
   }
 
