@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="field_game" class="container field_game">
+      {% for i in 0..4 %}
+        <div class="row">
+          {% for i in 0..4 %}
+            <div class="col-xs-1 field_lamp">
+              <div class="lamp_out"></div>
+            </div>
+            {% endfor %}
+        </div>
+      {% endfor %}
+      <div class="row step_box">
+        <div class="step_counter text-center">0</div>
+        <!-- https://codepen.io/ashlewis/pen/dwxnq -->
+      </div>
+      <div class="row">
+        <button id="new_game_btn" class="btn btn-primary">Новая игра</button>
+        <button id="best_results_btn" class="btn btn-primary">Лучшие результаты</button>
+      </div>
+    </div>
+    <div id="best_results_game" class="container text-center">
+    </div>
+{% endblock %}
+
+{% block modal %}
+  <div id="result_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <div class="modal-title h4">Сохранить результат?</div>
+        </div>
+        <div class="modal-body text-center">
+          <div class="h2">Вы победили</div>
+          <span>Введите имя: </span><input id="name_result_modal" type="text" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+          <button id="save_result_modal" type="button" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

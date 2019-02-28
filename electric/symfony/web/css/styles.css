@@ -1,0 +1,50 @@
+.field_game {
+  width: 350px;
+  min-width: 350px;
+  border-radius: 5px;
+  background-color: #000000;
+  border-color: red;
+}
+
+.field_lamp {
+  width: 70px;
+  height: 70px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.step_counter {
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 32px;
+}
+
+.lamp_out {
+  border: 2px solid #2b2b2b;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(to right, #000000, #2b2b2b);
+  border-radius: 5px;
+}
+
+.lamp_up {
+  border: 2px solid #c4c7ca;
+  width: 60px;
+  height: 60px;
+  background-color: #5789bd;
+  border-radius: 5px;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+#result_modal .modal-dialog {
+  width: 400px
+}
+
+.valid_result_modal {
+  border-color: red;
+}

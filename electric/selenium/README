@@ -1,0 +1,4 @@
+npm install chromedriver
+npm install selenium-webdriver
+java -jar selenium-server
+nodejs test.js
